@@ -142,4 +142,3 @@ if __name__ == "__main__":
     main("1 * X^3 - 2 * X^2 + 3 * X^1 - 4 * X^0 = 0")
     print("\nSpecial Cases:")
     main("1 * X^0 = 1 * X^0")
-    main("3 * X^0 = 5 * X^0")
