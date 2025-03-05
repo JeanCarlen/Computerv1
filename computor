@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python3 SolvePoly_2.py
