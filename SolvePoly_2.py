@@ -22,11 +22,11 @@ def analyser_equation(equation):
     coeffs = {}
     for coeff, power in left_terms:
         coeffs[power] = coeffs.get(power, 0) + coeff
-    print("\n the dico left is ", coeffs)
+    # print("\n the dico left is ", coeffs)
     for coeff, power in right_terms:
         coeffs[power] = coeffs.get(power, 0) - coeff
-        print("\n in the right for", coeffs[power])
-    print("\n the dico is ", coeffs)
+    #     print("\n in the right for", coeffs[power])
+    # print("\n the dico is ", coeffs)
     return coeffs
 
 
@@ -106,22 +106,20 @@ def solve_equation(coeffs, discriminant, degre):
             print("There is no solution.")
 
 
-def main(equation):
-    coeffs = analyser_equation(equation)
-    reduce_form(coeffs)
-    degre = find_degree(coeffs)
-    print(f"Polynomial degree: {degre}")
-    if degre <= 2:
-        discriminant = find_discriminant(coeffs)
-        solve_equation(coeffs, discriminant, degre)
-    else:
-        solve_equation(coeffs, 0, degre)
+def main():
+    equation = input("Entrez l'équation : ")
+    try:
+        coeffs = analyser_equation(equation)
+        reduce_form(coeffs)
+        degre = find_degree(coeffs)
+        print(f"Polynomial degree: {degre}")
+        if degre <= 2:
+            discriminant = find_discriminant(coeffs)
+            solve_equation(coeffs, discriminant, degre)
+        else:
+            solve_equation(coeffs, 0, degre)
+    except ValueError as e:
+        print(f"Erreur : {e}")
 
 
-# Example usage
-main("1 * X^0 = 5 * X^0 + 4 * X^1 - 9.3 * X^2 ")
-# print("\n")
-# main("5 * X^0 + 4 * X^1 = 4 * X^0")
-# print("\n")
-# main("8 * X^0 - 6 * X^1 + 0 * X^2 - 5.6 * X^3 = 3 * X^0")
-# print("\n")
+main()
